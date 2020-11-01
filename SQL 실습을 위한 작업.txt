@@ -1,0 +1,108 @@
+C:\Users\user>cd Documents\employees
+
+C:\Users\user\Documents\employees>mysql -u root -p mysql -t < employees.sql
+'mysql'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+배치 파일이 아닙니다.
+
+C:\Users\user\Documents\employees>set PATH=C:\Program Files\MySQL\MySQL Server 8.0\bin;%PATH%
+
+C:\Users\user\Documents\employees>mysql -u root -p mysql
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 2191
+Server version: 8.0.21 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> alter user 'root'@'%' identified by 'sqlds';
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> alter user 'sqlds'@'%' identified by 'sqlds';
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.20 sec)
+
+mysql> exit
+Bye
+
+C:\Users\user\Documents\employees>mysql -u sqlds -p mysql -t < employees.sql
+Enter password: *****
++-----------------------------+
+| INFO                        |
++-----------------------------+
+| CREATING DATABASE STRUCTURE |
++-----------------------------+
++---------------------+
+| INFO                |
++---------------------+
+| LOADING departments |
++---------------------+
++-------------------+
+| INFO              |
++-------------------+
+| LOADING employees |
++-------------------+
++------------------+
+| INFO             |
++------------------+
+| LOADING dept_emp |
++------------------+
++----------------------+
+| INFO                 |
++----------------------+
+| LOADING dept_manager |
++----------------------+
++----------------+
+| INFO           |
++----------------+
+| LOADING titles |
++----------------+
++------------------+
+| INFO             |
++------------------+
+| LOADING salaries |
++------------------+
+
+C:\Users\user\Documents\employees>cd ..
+
+C:\Users\user\Documents>mysql -u sqlds -p mysql -t < sqlDB.sql
+Enter password: *****
++--------+--------+-----------+------+---------+---------+--------+------------+
+| userID | name   | birthYear | addr | mobile1 | mobile2 | height | mDate      |
++--------+--------+-----------+------+---------+---------+--------+------------+
+| BBK    | 바비킴 |      1973 | 서울 | 010     | 0000000 |    176 | 2013-05-05 |
+| EJW    | 은지원 |      1972 | 경북 | 011     | 8888888 |    174 | 2014-03-03 |
+| JKW    | 조관우 |      1965 | 경기 | 018     | 9999999 |    172 | 2010-10-10 |
+| JYP    | 조용필 |      1950 | 경기 | 011     | 4444444 |    166 | 2009-04-04 |
+| KBS    | 김범수 |      1979 | 경남 | 011     | 2222222 |    173 | 2012-04-04 |
+| KKH    | 김경호 |      1971 | 전남 | 019     | 3333333 |    177 | 2007-07-07 |
+| LJB    | 임재범 |      1963 | 서울 | 016     | 6666666 |    182 | 2009-09-09 |
+| LSG    | 이승기 |      1987 | 서울 | 011     | 1111111 |    182 | 2008-08-08 |
+| SSK    | 성시경 |      1979 | 서울 | NULL    | NULL    |    186 | 2013-12-12 |
+| YJS    | 윤종신 |      1969 | 경남 | NULL    | NULL    |    170 | 2005-05-05 |
++--------+--------+-----------+------+---------+---------+--------+------------+
++-----+--------+----------+-----------+-------+--------+
+| num | userID | prodName | groupName | price | amount |
++-----+--------+----------+-----------+-------+--------+
+|   1 | KBS    | 운동화   | NULL      |    30 |      2 |
+|   2 | KBS    | 노트북   | 전자      |  1000 |      1 |
+|   3 | JYP    | 모니터   | 전자      |   200 |      1 |
+|   4 | BBK    | 모니터   | 전자      |   200 |      5 |
+|   5 | KBS    | 청바지   | 의류      |    50 |      3 |
+|   6 | BBK    | 메모리   | 전자      |    80 |     10 |
+|   7 | SSK    | 책       | 서적      |    15 |      5 |
+|   8 | EJW    | 책       | 서적      |    15 |      2 |
+|   9 | EJW    | 청바지   | 의류      |    50 |      1 |
+|  10 | BBK    | 운동화   | NULL      |    30 |      2 |
+|  11 | EJW    | 책       | 서적      |    15 |      1 |
+|  12 | BBK    | 운동화   | NULL      |    30 |      2 |
++-----+--------+----------+-----------+-------+--------+
+
+C:\Users\user\Documents>
