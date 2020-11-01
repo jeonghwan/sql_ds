@@ -106,3 +106,7 @@ Enter password: *****
 +-----+--------+----------+-----------+-------+--------+
 
 C:\Users\user\Documents>
+C:\Users\user\Documents>mysql -u sqlds -p mysql < sample.dump
+Enter password: *****
+
+C:\Users\user\Documents>
